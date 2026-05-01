@@ -1,15 +1,31 @@
+import heroBg1 from "@/assets/hero-bg/hero1.png";
+import { Button } from "@heroui/react";
 import Image from "next/image";
-import heroBg1 from '@/assets/hero-bg/hero1.png'
-import heroBg2 from '@/assets/hero-bg/hero2.png'
-import heroBg3 from '@/assets/hero-bg/hero3.png'
-import heroBg4 from '@/assets/hero-bg/hero4.png'
-
 
 export default function HeroSection() {
     return (
-        <section className="flex justify-center items-center min-h-screen " >
-            <h1>Hello world</h1>
-            {/* <div className="h-screen w-screen"><p>hello</p></div> */}
-        </section >
-    )
+        <section className="relative w-full h-screen overflow-hidden">
+            <div className='absolute inset-0'>
+                <Image
+                    src={heroBg1}
+                    alt="hero background"
+                    fill
+                    className="w-full h-full object-cover blur-xs"
+                />
+            </div>
+
+            <div className="relative z-5 flex flex-col items-center justify-center h-full text-center text-white px-4">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6">
+                    Discover Your Perfect Aesthetic
+                </h1>
+
+                <Button
+                    size="lg"
+                    className="bg-white text-black font-semibold px-6 py-3 hover:bg-gray-200 transition"
+                >
+                    Browse Now
+                </Button>
+            </div>
+        </section>
+    );
 }

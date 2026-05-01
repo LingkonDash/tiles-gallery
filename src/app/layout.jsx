@@ -2,7 +2,7 @@ import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 
-const inter = Inter({
+export const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin']
 })
@@ -21,11 +21,11 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      data-theme='light'
+      data-theme='dark'
       className={`${notoSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="fixed w-full z-10 bg-white shadow-sm">
+        <header className="fixed w-full z-10 px text-white shadow-sm">
           <Navbar />
         </header>
         <main>
