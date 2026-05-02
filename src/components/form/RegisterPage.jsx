@@ -1,16 +1,32 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField, } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterForm() {
-    const onSubmit = (e) => {
+
+    const [isVisible, setIsVisible] = useState(false)
+
+    const onSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData);
+        const user = Object.fromEntries(formData);
 
-        console.log(data);
+        console.log(user);
+
+        const { data, error } = await authClient.signUp.email({
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            image: user.photo,
+            callbackURL: "/login",
+        });
+
+        console.log(data, error, 'response of auth')
     };
 
     return (
@@ -84,7 +100,8 @@ export default function RegisterForm() {
                     isRequired
                     minLength={8}
                     name="password"
-                    type="password"
+                    type={isVisible ? 'text' : "password"}
+                    className={'relative'}
                     validate={(value) => {
                         if (value.length < 8) {
                             return "Password must be at least 8 characters";
@@ -97,6 +114,12 @@ export default function RegisterForm() {
                         placeholder="Enter your password"
                         className="bg-white/20 text-white placeholder-white/70 border-white/30"
                     />
+                    <button
+                        onClick={() => setIsVisible(!isVisible)}
+                        className="absolute top-[34px] right-2.5 cursor-pointer hover:text-blue-200"
+                    >
+                        {isVisible ? <FaEye /> : <FaEyeSlash />}
+                    </button>
                     <Description className="text-white/70 text-left">
                         Must be at least 8 characters
                     </Description>
@@ -126,7 +149,7 @@ export default function RegisterForm() {
             </div>
 
             <Button
-                onClick={handleGoogleLogin}
+                // onClick={handleGoogleLogin}
                 className="w-full bg-white/10 hover:bg-white/40 border border-white/40"
             >
                 <FcGoogle />

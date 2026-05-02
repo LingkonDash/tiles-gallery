@@ -3,12 +3,10 @@ import logo from '@/assets/logo.png'
 import Link from "next/link";
 import { notoSerif } from "@/app/layout";
 import Navlink from "./Navlink";
-import { FaUserCircle } from "react-icons/fa";
 import MobileMenu from "./MobileMenu";
+import NavbarProfile from "../client/NavbarProfile";
 
 export default function Navbar() {
-
-    const isLoggedIn = false;
 
     return (
         <nav className={`${notoSerif.className} fixed top-0 left-0 w-full z-50 px-3`}>
@@ -39,40 +37,7 @@ export default function Navbar() {
 
                 <div className="hidden lg:flex justify-end items-center gap-4">
 
-                    {!isLoggedIn ? (
-                        <>
-                            <Link
-                                href="/login"
-                                className="px-4 py-2 rounded-full bg-white/10 text-white text-sm uppercase
-                            border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                Login
-                            </Link>
-                            <Link
-                                href="/register"
-                                className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm uppercase
-                            border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                Register
-                            </Link>
-                        </>
-                    ) : (
-                        <>
-                            <Link
-                                href="/profile"
-                                className="text-white text-2xl hover:scale-110 transition"
-                            >
-                                <FaUserCircle />
-                            </Link>
-
-                            <button
-                                className="px-4 py-2 rounded-full bg-white/10 text-white text-sm uppercase
-                                border border-white/20 hover:bg-blue-700 cursor-pointer hover:text-white transition-all duration-300"
-                            >
-                                Logout
-                            </button>
-                        </>
-                    )}
+                    <NavbarProfile />
 
                 </div>
                 <div className="flex lg:hidden">

@@ -1,16 +1,28 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField, } from "@heroui/react";
 import Link from "next/link";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
 export default function LoginForm() {
-  const onSubmit = (e) => {
+  const [isVisible, setIsVisible] = useState(false)
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    console.log(data);
-    
+    const user = Object.fromEntries(formData);
+    console.log(user);
+
+    const { data, error } = await authClient.signIn.email({
+      email: user.email,
+      password: user.password,
+      callbackURL: "/",
+    });
+
+    console.log(data, error, 'auth login')
+
   };
 
   return (
@@ -43,14 +55,15 @@ export default function LoginForm() {
             placeholder="john@example.com"
             className="bg-white/20 text-white placeholder-white/70 border-white/30"
           />
-          <FieldError className={'text-left'}/>
+          <FieldError className={'text-left'} />
         </TextField>
 
         <TextField
           isRequired
           minLength={8}
           name="password"
-          type="password"
+          type={isVisible ? 'text' : "password"}
+          className={'relative'}
           validate={(value) => {
             if (value.length < 8) {
               return "Password must be at least 8 characters";
@@ -63,10 +76,16 @@ export default function LoginForm() {
             placeholder="Enter your password"
             className="bg-white/20 text-white placeholder-white/70 border-white/30"
           />
+          <button
+            onClick={() => setIsVisible(!isVisible)}
+            className="absolute top-[34px] right-2.5 cursor-pointer hover:text-blue-200"
+          >
+            {isVisible ? <FaEye /> : <FaEyeSlash />}
+          </button>
           <Description className="text-white/70 text-left">
             Must be at least 8 characters
           </Description>
-          <FieldError className={'text-left'}/>
+          <FieldError className="text-left" />
         </TextField>
 
         <div className="flex gap-2 mt-2">
