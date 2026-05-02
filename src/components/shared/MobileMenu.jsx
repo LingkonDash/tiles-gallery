@@ -41,14 +41,24 @@ export default function MobileMenu({ isLoggedIn }) {
                     <div className="mt-6 flex flex-col gap-3">
 
                         {!isLoggedIn ? (
-                            <Link
-                                href="/login"
-                                onClick={() => setMenuOpen(false)}
-                                className="text-center px-4 py-2 rounded-full bg-white/10 text-white uppercase
+                            <>
+                                <Link
+                                    href="/login"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="text-center px-4 py-2 rounded-full bg-white/10 text-white uppercase
                                 border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
-                            >
-                                Login
-                            </Link>
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    href="/register"
+                                    onClick={() => setMenuOpen(false)}
+                                    className="text-center px-4 py-2 rounded-full bg-blue-500 text-white uppercase
+                                border border-white/20 hover:bg-white transition-all duration-300"
+                                >
+                                    Register
+                                </Link>
+                            </>
                         ) : (
                             <>
                                 <Link

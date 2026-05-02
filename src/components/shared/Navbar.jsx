@@ -40,13 +40,22 @@ export default function Navbar() {
                 <div className="hidden lg:flex justify-end items-center gap-4">
 
                     {!isLoggedIn ? (
-                        <Link
-                            href="/login"
-                            className="px-4 py-2 rounded-full bg-white/10 text-white text-sm uppercase
+                        <>
+                            <Link
+                                href="/login"
+                                className="px-4 py-2 rounded-full bg-white/10 text-white text-sm uppercase
                             border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
-                        >
-                            Login
-                        </Link>
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                href="/register"
+                                className="px-4 py-2 rounded-full bg-blue-600 text-white text-sm uppercase
+                            border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
+                            >
+                                Register
+                            </Link>
+                        </>
                     ) : (
                         <>
                             <Link
@@ -67,7 +76,7 @@ export default function Navbar() {
 
                 </div>
                 <div className="flex lg:hidden">
-                    <MobileMenu isLoggedIn={isLoggedIn}/>
+                    <MobileMenu isLoggedIn={isLoggedIn} />
                 </div>
             </div>
         </nav>

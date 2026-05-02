@@ -23,7 +23,7 @@ export default function TilesCard({ tile }) {
                 </p>
 
                 <Link href={`/all-tiles/${tile.id}`}>
-                    <button className="w-full bg-white/80 text-[#2c2c2c] py-2 rounded-lg font-medium hover:bg-blue-700 hover:text-white cursor-pointer transition">
+                    <button className="w-full bg-white/80 text-[#2c2c2c] py-2 rounded-lg font-medium hover:bg-white cursor-pointer transition">
                         View Details
                     </button>
                 </Link>
