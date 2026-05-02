@@ -190,17 +190,5 @@
         "dimensions": "60x60 cm",
         "material": "Marble",
         "inStock": true
-    },
-    {
-        "id": "tile_017",
-        "title": "Diagonal Grid Stone Tile",
-        "description": "A contemporary tile design featuring a diagonal grid layout with alternating stone textures. The structured geometry combined with subtle color variations gives it a modern and versatile look, suitable for both residential and commercial spaces.",
-        "image": "/tiles/tile_017.png",
-        "category": "stone",
-        "price": 41.85,
-        "currency": "USD",
-        "dimensions": "60x60 cm",
-        "material": "Stone",
-        "inStock": true
     }
 ]

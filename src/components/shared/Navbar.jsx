@@ -33,7 +33,7 @@ export default function Navbar() {
 
                 <ul className="hidden lg:flex justify-center items-center gap-8 text-sm font-medium uppercase tracking-wider">
                     <li><Navlink href="/">Home</Navlink></li>
-                    <li><Navlink href="/tiles">All Tiles</Navlink></li>
+                    <li><Navlink href="/all-tiles">All Tiles</Navlink></li>
                     <li><Navlink href="/profile">My Profile</Navlink></li>
                 </ul>
 

@@ -30,7 +30,7 @@ export default function MobileMenu({ isLoggedIn }) {
                         </li>
 
                         <li onClick={() => setMenuOpen(false)}>
-                            <Navlink href="/tiles">All Tiles</Navlink>
+                            <Navlink href="/all-tiles">All Tiles</Navlink>
                         </li>
 
                         <li onClick={() => setMenuOpen(false)}>

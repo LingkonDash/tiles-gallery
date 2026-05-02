@@ -4,6 +4,7 @@ import heroBg from "@/assets/hero-bg/newBG3.png";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 //disabled marquee ssr for hydration issue
 const Marquee = dynamic(() => import("react-fast-marquee"), { ssr: false });
@@ -25,10 +26,11 @@ export default function HeroSection() {
                 <h1 className="text-3xl md:text-5xl font-bold mb-6">
                     Discover Your Perfect Aesthetic
                 </h1>
-
-                <Button size="lg" className="px-6 py-3 font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-blue-500 transition-all duration-300" >
-                    Browse Now
-                </Button>
+                <Link href='/all-tiles'>
+                    <Button size="lg" className="px-6 py-3 font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-blue-500 transition-all duration-300" >
+                        Browse Now
+                    </Button>
+                </Link>
             </div>
 
             <div className="absolute bottom-0 left-0 w-full backdrop-blur-md bg-white/10 border-t border-white/10">

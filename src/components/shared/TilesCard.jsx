@@ -18,7 +18,7 @@ export default function TilesCard({ tile }) {
                     {tile.title}
                 </h3>
 
-                <p className="text-sm text-gray-300 mb-4 line-clamp-2">
+                <p className="text-sm text-gray-200 mb-4 line-clamp-2">
                     {tile.description}
                 </p>
 
