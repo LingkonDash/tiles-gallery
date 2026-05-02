@@ -5,7 +5,7 @@ import getData from "@/lib/getData";
 export default async function FeaturedSection() {
 
     const data = await getData();
-    
+
     const featured = data.slice(0, 4);
 
     return (
@@ -28,7 +28,7 @@ export default async function FeaturedSection() {
                     </p>
                 </div>
                 {/* Tiles card */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 max-w-350 mx-auto sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {featured.map((tile) => <TilesCard key={tile.id} tile={tile} />)}
                 </div>
 

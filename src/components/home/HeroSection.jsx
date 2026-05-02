@@ -21,7 +21,7 @@ export default function HeroSection() {
                 />
             </div>
 
-            <div className="relative z-5 flex flex-col items-center justify-center h-full text-center text-white px-4">
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
                 <h1 className="text-3xl md:text-5xl font-bold mb-6">
                     Discover Your Perfect Aesthetic
                 </h1>
