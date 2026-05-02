@@ -58,7 +58,7 @@ export default function Navbar() {
 
                             <button
                                 className="px-4 py-2 rounded-full bg-white/10 text-white text-sm uppercase
-                                border border-white/20 hover:bg-yellow-700 cursor-pointer hover:text-white transition-all duration-300"
+                                border border-white/20 hover:bg-blue-700 cursor-pointer hover:text-white transition-all duration-300"
                             >
                                 Logout
                             </button>

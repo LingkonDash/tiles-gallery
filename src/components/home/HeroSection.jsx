@@ -1,6 +1,6 @@
 'use client'
 
-import heroBg1 from "@/assets/hero-bg/hero1.png";
+import heroBg from "@/assets/hero-bg/newBG3.png";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -12,12 +12,12 @@ export default function HeroSection() {
     return (
         <section className="relative w-full h-screen overflow-hidden">
 
-            <div className='absolute inset-0'>
+            <div className='absolute inset-0 bg-black/60'>
                 <Image
-                    src={heroBg1}
+                    src={heroBg}
                     alt="hero background"
                     fill
-                    className="object-cover blur-xs"
+                    className="object-cover blur-sm"
                 />
             </div>
 
@@ -26,7 +26,7 @@ export default function HeroSection() {
                     Discover Your Perfect Aesthetic
                 </h1>
 
-                <Button size="lg" className="px-6 py-3 font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-white hover:text-black transition-all duration-300" >
+                <Button size="lg" className="px-6 py-3 font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-xl hover:bg-blue-500 transition-all duration-300" >
                     Browse Now
                 </Button>
             </div>

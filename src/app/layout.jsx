@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       className={`${notoSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header className="fixed w-full z-10 px text-white shadow-sm">
+        <header className="fixed w-full z-20 px text-white shadow-sm">
           <Navbar />
         </header>
         <main>
