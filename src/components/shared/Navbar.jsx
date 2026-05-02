@@ -8,7 +8,7 @@ import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
 
-    const isLoggedIn = true;
+    const isLoggedIn = false;
 
     return (
         <nav className={`${notoSerif.className} fixed top-0 left-0 w-full z-50 px-3`}>
