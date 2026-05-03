@@ -38,6 +38,13 @@ export default function LoginForm() {
     }, 1000);
   };
 
+  const handleGoogleLogin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  }
+
+
   return (
     <div className="w-full max-w-md bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl p-8 shadow-lg">
       <h1 className="text-2xl font-semibold text-white mb-2 text-center">
@@ -123,7 +130,7 @@ export default function LoginForm() {
         or continue with
       </div>
 
-      <Button className="w-full bg-white/10 hover:bg-white/40 border border-white/40">
+      <Button onClick={handleGoogleLogin} className="w-full bg-white/10 hover:bg-white/40 border border-white/40">
         <FcGoogle />
         Sign in with Google
       </Button>
