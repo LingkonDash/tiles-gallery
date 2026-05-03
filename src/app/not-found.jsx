@@ -1,3 +1,4 @@
+import notFoundBG from '@/assets/hero-bg/not-found-bg.png'
 export default function NotFoundPage () {
     return (
         <section className="min-h-screen flex justify-center items-center">

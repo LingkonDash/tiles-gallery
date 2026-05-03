@@ -6,27 +6,39 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function RegisterForm() {
 
     const [isVisible, setIsVisible] = useState(false)
 
+
+    const router = useRouter();
+
     const onSubmit = async (e) => {
         e.preventDefault();
+
         const formData = new FormData(e.currentTarget);
         const user = Object.fromEntries(formData);
-
-        console.log(user);
 
         const { data, error } = await authClient.signUp.email({
             name: user.name,
             email: user.email,
             password: user.password,
             image: user.photo,
-            callbackURL: "/login",
         });
 
-        console.log(data, error, 'response of auth')
+        if (error) {
+            toast.error(error.message || "Registration failed");
+            return;
+        }
+
+        toast.success("Registration successful! Redirecting...");
+
+        setTimeout(() => {
+            router.push("/login");
+        }, 1200);
     };
 
     return (
@@ -114,12 +126,12 @@ export default function RegisterForm() {
                         placeholder="Enter your password"
                         className="bg-white/20 text-white placeholder-white/70 border-white/30"
                     />
-                    <button
+                    <div
                         onClick={() => setIsVisible(!isVisible)}
                         className="absolute top-[34px] right-2.5 cursor-pointer hover:text-blue-200"
                     >
                         {isVisible ? <FaEye /> : <FaEyeSlash />}
-                    </button>
+                    </div>
                     <Description className="text-white/70 text-left">
                         Must be at least 8 characters
                     </Description>

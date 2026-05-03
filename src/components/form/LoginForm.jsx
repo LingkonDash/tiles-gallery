@@ -6,14 +6,19 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const [isVisible, setIsVisible] = useState(false)
+
+  const router = useRouter();
+
   const onSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
-    console.log(user);
 
     const { data, error } = await authClient.signIn.email({
       email: user.email,
@@ -21,8 +26,16 @@ export default function LoginForm() {
       callbackURL: "/",
     });
 
-    console.log(data, error, 'auth login')
+    if (error) {
+      toast.error(error.message || "Invalid email or password");
+      return;
+    }
 
+    toast.success("Login successful! Redirecting...");
+
+    setTimeout(() => {
+      router.push("/");
+    }, 1000);
   };
 
   return (
@@ -76,12 +89,12 @@ export default function LoginForm() {
             placeholder="Enter your password"
             className="bg-white/20 text-white placeholder-white/70 border-white/30"
           />
-          <button
+          <div
             onClick={() => setIsVisible(!isVisible)}
             className="absolute top-[34px] right-2.5 cursor-pointer hover:text-blue-200"
           >
             {isVisible ? <FaEye /> : <FaEyeSlash />}
-          </button>
+          </div>
           <Description className="text-white/70 text-left">
             Must be at least 8 characters
           </Description>

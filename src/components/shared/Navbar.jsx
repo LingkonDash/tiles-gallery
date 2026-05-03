@@ -41,7 +41,7 @@ export default function Navbar() {
 
                 </div>
                 <div className="flex lg:hidden">
-                    <MobileMenu isLoggedIn={isLoggedIn} />
+                    <MobileMenu />
                 </div>
             </div>
         </nav>

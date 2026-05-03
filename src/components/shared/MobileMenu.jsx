@@ -5,8 +5,9 @@ import Link from "next/link"
 import Navlink from "./Navlink"
 import { FaUserCircle } from "react-icons/fa"
 import { HiMenu, HiX } from "react-icons/hi"
+import NavbarProfile from "../client/NavbarProfile"
 
-export default function MobileMenu({ isLoggedIn }) {
+export default function MobileMenu() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
@@ -40,44 +41,8 @@ export default function MobileMenu({ isLoggedIn }) {
 
                     <div className="mt-6 flex flex-col gap-3">
 
-                        {!isLoggedIn ? (
-                            <>
-                                <Link
-                                    href="/login"
-                                    onClick={() => setMenuOpen(false)}
-                                    className="text-center px-4 py-2 rounded-full bg-white/10 text-white uppercase
-                                border border-white/20 hover:bg-white hover:text-black transition-all duration-300"
-                                >
-                                    Login
-                                </Link>
-                                <Link
-                                    href="/register"
-                                    onClick={() => setMenuOpen(false)}
-                                    className="text-center px-4 py-2 rounded-full bg-blue-500 text-white uppercase
-                                border border-white/20 hover:bg-white transition-all duration-300"
-                                >
-                                    Register
-                                </Link>
-                            </>
-                        ) : (
-                            <>
-                                <Link
-                                    href="/profile"
-                                    onClick={() => setMenuOpen(false)}
-                                    className="flex items-center justify-center gap-2 text-white"
-                                >
-                                    <FaUserCircle className="text-xl" />
-                                    Profile
-                                </Link>
-
-                                <button
-                                    className="px-4 py-2 rounded-full bg-white/10 text-white uppercase
-                                    border border-white/20 hover:bg-yellow-700 transition-all duration-300"
-                                >
-                                    Logout
-                                </button>
-                            </>
-                        )}
+                        <NavbarProfile />
+                        
                     </div>
                 </div>
             )}

@@ -1,6 +1,7 @@
 import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
+import { ToastContainer } from "react-toastify";
 
 export const inter = Inter({
   variable: '--font-inter',
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         <main>
           {children}
         </main>
+        <ToastContainer />
       </body>
     </html>
   );
