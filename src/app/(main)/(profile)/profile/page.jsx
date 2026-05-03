@@ -27,6 +27,15 @@ export default function ProfilePage() {
         );
     }
 
+    if (!session?.user) {
+        return (
+            <div className="relative min-h-screen flex items-center justify-center text-white">
+                <div className="absolute inset-0 bg-linear-to-br from-blue-900/60 via-blue-700/40 to-blue-500/30 backdrop-blur-xl" />
+                <p className="z-10 text-3xl">Please login to view your profile</p>
+            </div>
+        );
+    }
+
     const user = session.user;
 
     return (

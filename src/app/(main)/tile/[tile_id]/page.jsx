@@ -19,31 +19,14 @@ export default async function TilesDetailsPage({ params }) {
     }
 
     return (
-        <section
-            className="
-        relative w-full min-h-screen 
-        flex items-center justify-center 
-        px-4 py-20
-        bg-center bg-cover
-      "
+        <section className="relative w-full min-h-screen flex items-center justify-center px-4 py-20 bg-center bg-cover"
             style={{
                 backgroundImage: `url(${bgImage.src})`,
             }}
         >
             <div className="absolute inset-0 backdrop-blur-sm" />
 
-            <div
-                className="
-          relative z-10 
-          max-w-5xl w-full 
-          bg-white/10 
-          backdrop-blur-xl 
-          border border-white/40 
-          rounded-2xl 
-          shadow-lg 
-          p-6 md:p-10
-        "
-            >
+            <div className="relative z-10 max-w-5xl w-full bg-white/10 backdrop-blur-xl border border-white/40 rounded-2xl shadow-lg p-6 md:p-10">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
 
                     <div className="relative w-full h-80 rounded-xl overflow-hidden">
@@ -75,16 +58,7 @@ export default async function TilesDetailsPage({ params }) {
                             </p>
                         </div>
 
-                        <button className="
-              mt-6 
-              px-6 py-2 
-              bg-white/40 
-              rounded-lg 
-              font-medium 
-              hover:bg-blue-600
-              cursor-pointer 
-              transition
-            ">
+                        <button className="mt-6 px-6 py-2 bg-white/40 rounded-lg font-medium hover:bg-blue-600 cursor-pointer transition">
                             Contact / Buy Now
                         </button>
                     </div>
