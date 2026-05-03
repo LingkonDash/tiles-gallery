@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
-@import 'animate.css';
 
 @theme {
     --color-primary-text: #2C3333;
