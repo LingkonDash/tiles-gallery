@@ -1,17 +1,13 @@
-import TilesCard from "@/components/shared/TilesCard";
 import getData from "@/lib/getData";
 import tilesBG from "@/assets/hero-bg/newBG3.png";
+import AllTilesClient from "@/components/client/AllTilesClient";
 
 export default async function AllTilesPage() {
-  const data = await getData(); 
+  const data = await getData();
 
   return (
     <section
-      className="
-        relative w-full min-h-screen
-        py-20 px-4 md:px-10
-        bg-repeat md:bg-cover md:bg-no-repeat
-      "
+      className="relative w-full min-h-screen py-20 px-4 md:px-10 bg-repeat md:bg-cover md:bg-no-repeat"
       style={{
         backgroundImage: `url(${tilesBG.src})`,
       }}
@@ -29,11 +25,7 @@ export default async function AllTilesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {data.map((tile) => (
-            <TilesCard key={tile.id} tile={tile} />
-          ))}
-        </div>
+        <AllTilesClient data={data} />
       </div>
     </section>
   );
